@@ -35,6 +35,9 @@ dependencies:
   socket.io:
     specifier: ^4.7.5
     version: 4.7.5
+  typescript:
+    specifier: ^5.5.4
+    version: 5.5.4
 
 devDependencies:
   drizzle-kit:
@@ -2087,7 +2090,6 @@ packages:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /undici-types@6.13.0:
     resolution: {integrity: sha512-xtFJHudx8S2DSoujjMd1WeWvn7KKWFRESZTMeL1RptAYERu29D6jphMjjY+vn96jvN3kVPDNxU/E13VTaXj6jg==}
