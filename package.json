@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esbuild-register server.ts",
+    "start": "node dist/server.js",
+    "build": "npx tsc",
+    "dev": "node -r esbuild-register server.ts",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"
   },

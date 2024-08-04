@@ -7,8 +7,8 @@ export async function getOrCreateRoomById(roomId: string) {
     .insert(rooms)
     .values({
       roomId,
-      inProgress: false,
-      private: false
+      started: false,
+      private: false,
     })
     .onConflictDoNothing();
 
@@ -19,7 +19,7 @@ export async function getOrCreateRoomById(roomId: string) {
 
   return {
     ...room,
-    players
+    players,
   };
 }
 
@@ -28,7 +28,7 @@ export async function addUserToRoom(roomId: string, socketId: string) {
     .insert(sessions)
     .values({
       roomId,
-      socketId
+      socketId,
     })
     .onConflictDoNothing();
 }
