@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
@@ -23,7 +24,7 @@ gameNamespace.on('connection', (socket) => {
 
     // get room
     gameNamespace.to(GLOBALROOMID).emit('playerDisconnect', {
-      userId: socket.id
+      userId: socket.id,
     });
   });
 
@@ -42,17 +43,17 @@ gameNamespace.on('connection', (socket) => {
     // pings player with room code -- confirms joined.
     socket.emit('joinedLobby', {
       roomId: GLOBALROOMID,
-      playerIds: room.players.map((player) => player.socketId)
+      playerIds: room.players.map((player) => player.socketId),
     });
 
     gameNamespace.to(roomId).emit('newUser', {
-      userId: socket.id
+      userId: socket.id,
     });
   });
 
   socket.on('startGame', (roomId) => {
     gameNamespace.to(roomId).emit('startGame', {
-      text: generateRandomParagraph()
+      text: generateRandomParagraph(),
     });
   });
 
@@ -65,7 +66,7 @@ gameNamespace.on('connection', (socket) => {
 
   socket.on('finished', () => {
     gameNamespace.to(GLOBALROOMID).emit('finished', {
-      userId: socket.id
+      userId: socket.id,
     });
   });
 });
